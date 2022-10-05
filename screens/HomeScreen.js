@@ -16,8 +16,24 @@ import colors from "./../utils/colors";
 import supportedLanguages from "../utils/supportedLanguages";
 import { translate } from "../utils/translate";
 import { useDispatch, useSelector } from "react-redux";
-import { addHistoryItem } from "../store/historySlice";
+import { addHistoryItem, sethistoryItems } from "../store/historySlice";
 import ResultItem from "../components/ResultItem";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const loadData = () => {
+    return async (dispatch) => {
+        try {
+            const historyString = await AsyncStorage.getItem("history");
+            if (historyString !== null) {
+                const history = JSON.parse(historyString);
+                dispatch(sethistoryItems({ items: history }));
+            }
+        } catch (error) {
+            console.log("error");
+            console.log(error);
+        }
+    };
+};
 
 export default function HomeScreen(props) {
     const params = props.route.params || {};
@@ -31,6 +47,10 @@ export default function HomeScreen(props) {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        dispatch(loadData());
+    }, [dispatch]);
+
+    useEffect(() => {
         if (params.languageTo) {
             setLanguageTo(params.languageTo);
         }
@@ -38,6 +58,17 @@ export default function HomeScreen(props) {
             setLanguageFrom(params.languageFrom);
         }
     }, [params.languageTo, params.languageFrom]);
+
+    useEffect(() => {
+        const savedHistory = async () => {
+            try {
+                await AsyncStorage.setItem("history", JSON.stringify(history));
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        savedHistory();
+    }, [history]);
 
     const onSubmit = useCallback(async () => {
         setIsLoading(true);
