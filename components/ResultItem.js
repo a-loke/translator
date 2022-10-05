@@ -13,14 +13,8 @@ export default function ResultItem(props) {
         state.history.items.find((item) => item.id === itemId)
     );
     const savedItems = useSelector((state) => state.savedItems.items);
-    // // console.log(savedItems);
-    // let isSaved;
-    // if (savedItems) {
-    //     console.log(savedItems);
+
     const isSaved = savedItems.some((item) => item.id === itemId);
-    // } else {
-    //     isSaved = false;
-    // }
     const starIcon = isSaved ? "star" : "star-outlined";
 
     const starItem = useCallback(() => {

@@ -9,7 +9,7 @@ export const historySlice = createSlice({
         addHistoryItem: (state, action) => {
             const { item } = action.payload;
             if (item) {
-                state.items.push(item);
+                state.items.unshift(item);
             }
         },
     },
