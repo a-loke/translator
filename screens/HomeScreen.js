@@ -1,6 +1,7 @@
 import {
     ActivityIndicator,
     FlatList,
+    Keyboard,
     StyleSheet,
     Text,
     TextInput,
@@ -150,6 +151,7 @@ export default function HomeScreen(props) {
                     onChangeText={(text) => setEnteredText(text)}
                 ></TextInput>
                 <TouchableOpacity
+                    onPressIn={Keyboard.dismiss}
                     onPress={isLoading ? undefined : onSubmit}
                     disabled={enteredText === ""}
                     style={styles.iconContainer}
@@ -162,7 +164,7 @@ export default function HomeScreen(props) {
                     ) : (
                         <Ionicons
                             name="arrow-forward-circle-sharp"
-                            size={24}
+                            size={30}
                             color={
                                 enteredText !== ""
                                     ? colors.primary
@@ -181,7 +183,7 @@ export default function HomeScreen(props) {
                 >
                     <MaterialIcons
                         name="content-copy"
-                        size={24}
+                        size={30}
                         color={
                             resultText !== ""
                                 ? colors.text
