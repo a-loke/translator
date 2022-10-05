@@ -4,9 +4,6 @@
 
 Translate is a translation app with 100+ languages from and to translate. I have used an **NLP translate API** from [rapidapi.com](https://rapidapi.com/gofitech/api/nlp-translation/)
 
-![home](assets/screenshots/home.png =x350) ![languages](assets/screenshots/languages.png =x350)
-![home](assets/screenshots/saved.png =x350) ![languages](assets/screenshots/settings.png =x350)
-
 ## Features
 
 -   100+ languages
