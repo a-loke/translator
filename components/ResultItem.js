@@ -10,9 +10,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function ResultItem(props) {
     const dispatch = useDispatch();
     const { itemId } = props;
-    const item = useSelector((state) =>
-        state.history.items.find((item) => item.id === itemId)
-    );
+    const item = useSelector((state) => {
+        return (
+            state.history.items.find((item) => item.id === itemId) ||
+            state.savedItems.items.find((item) => item.id === itemId)
+        );
+    });
     const savedItems = useSelector((state) => state.savedItems.items);
 
     const isSaved = savedItems.some((item) => item.id === itemId);
@@ -71,6 +74,7 @@ const styles = StyleSheet.create({
         fontFamily: "regular",
         letterSpacing: 0.3,
         color: colors.subText,
+        fontSize: 13,
     },
     saveIcon: {
         width: 30,

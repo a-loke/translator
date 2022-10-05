@@ -15,9 +15,13 @@ export const historySlice = createSlice({
         sethistoryItems: (state, action) => {
             state.items = action.payload.items;
         },
+        clearHistory: (state) => {
+            state.items = [];
+        },
     },
 });
 
-export const { addHistoryItem, sethistoryItems } = historySlice.actions;
+export const { addHistoryItem, sethistoryItems, clearHistory } =
+    historySlice.actions;
 
 export default historySlice.reducer;
