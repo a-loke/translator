@@ -1,7 +1,9 @@
 {
     "expo": {
-        "name": "translator",
+        "name": "Translator",
         "slug": "translator",
+        "privacy": "public",
+        "description": "A Google Translation clone",
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
