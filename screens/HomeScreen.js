@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addHistoryItem, sethistoryItems } from "../store/historySlice";
 import ResultItem from "../components/ResultItem";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { setSavedItems } from "../store/savedItemsSlice";
 
 const loadData = () => {
     return async (dispatch) => {
@@ -28,8 +29,12 @@ const loadData = () => {
                 const history = JSON.parse(historyString);
                 dispatch(sethistoryItems({ items: history }));
             }
+            const savedItemsString = await AsyncStorage.getItem("savedItems");
+            if (savedItemsString !== null) {
+                const savedItems = JSON.parse(savedItemsString);
+                dispatch(setSavedItems({ items: savedItems }));
+            }
         } catch (error) {
-            console.log("error");
             console.log(error);
         }
     };
