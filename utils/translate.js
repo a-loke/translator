@@ -1,14 +1,12 @@
-import { API_KEY, URL, API_HOST } from "@variable";
-
 export const translate = async (text, from, to) => {
     const axios = require("axios");
     const options = {
         method: "GET",
-        url: `${URL}`,
+        url: `https://nlp-translation.p.rapidapi.com/v1/translate`,
         params: { text: text, to: to, from: from },
         headers: {
-            "X-RapidAPI-Key": `${API_KEY}`,
-            "X-RapidAPI-Host": `${API_HOST}`,
+            "X-RapidAPI-Key": `e5ce2c2453msh06f7ac4a534b119p12eb13jsn68a4bd7a3db0`,
+            "X-RapidAPI-Host": `nlp-translation.p.rapidapi.com`,
         },
     };
 
