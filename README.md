@@ -1,5 +1,7 @@
 # Translate
 
+### [Demo](https://expo.dev/@lokeswaran/translate)
+
 ### A Google Translation app clone in React Native
 
 Translate is a translation app with 100+ languages from and to translate. I have used an **NLP translate API** from [rapidapi.com](https://rapidapi.com/gofitech/api/nlp-translation/)
