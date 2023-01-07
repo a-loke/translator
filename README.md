@@ -31,3 +31,12 @@ npm start
 ```
 
 Scan the QR code on physical device or press `a` or `i` to open in Android or IOS simulator respectively
+
+# Try my publish app from Expo Go app
+
+If you have installed [Expo Go](https://expo.dev/client) app in you device, you can scan the following QR code and run the app and play with it.
+<img src="https://qr.expo.dev/expo-go?owner=lokeswaran&slug=Translator&releaseChannel=default&host=exp.host" width="300">
+
+Or just use put following link to your Expo Go app
+
+`exp://exp.host/@lokeswaran/Translator?release-channel=default`

@@ -2,7 +2,7 @@
     "expo": {
         "name": "Translator",
         "owner": "lokeswaran",
-        "slug": "translate",
+        "slug": "Translator",
         "privacy": "public",
         "description": "A Google Translation clone",
         "version": "1.0.0",
